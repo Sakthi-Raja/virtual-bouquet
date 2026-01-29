@@ -14,13 +14,27 @@ export default function View() {
     <div style={{ padding: 24, textAlign: "center" }}>
       <h1>💐 A Bouquet for You</h1>
 
-      <div style={{ fontSize: 32 }}>
-        {selectedFlowers.map(f => (
-          <span key={f.id} style={{ margin: 8 }}>
-            {f.name.split(" ")[1]}
-          </span>
-        ))}
-      </div>
+      <div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    marginTop: 20
+  }}
+>
+  {selectedFlowers.map(f => (
+    <img
+      key={f.id}
+      src={f.image}
+      alt={f.name}
+      style={{
+        width: 90,
+        margin: 10
+      }}
+    />
+  ))}
+</div>
+
 
       <p style={{ marginTop: 20 }}>{message}</p>
     </div>
