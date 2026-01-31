@@ -16,24 +16,37 @@ export default function View() {
 
       <div
   style={{
-    display: "flex",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    marginTop: 20
+    position: "relative",
+    height: 220,
+    marginTop: 30,
+    marginBottom: 20
   }}
 >
-  {selectedFlowers.map(f => (
-    <img
-      key={f.id}
-      src={f.image}
-      alt={f.name}
-      style={{
-        width: 90,
-        margin: 10
-      }}
-    />
-  ))}
-</div>
+  {selectedFlowers.map((f, i) => {
+    const angle = (i - (selectedFlowers.length - 1) / 2) * 12;
+
+    return (
+      <img
+        key={f.id}
+        src={f.image}
+        alt={f.name}
+        style={{
+          width: 110,
+          position: "absolute",
+          left: "50%",
+          bottom: 0,
+          transform: `
+            translateX(-50%)
+            rotate(${angle}deg)
+            translateY(${Math.abs(angle) * -1}px)
+          `,
+          transformOrigin: "bottom center",
+          filter: "drop-shadow(0 6px 12px rgba(0,0,0,0.4))"
+        }}
+      />
+    );
+  })}
+      </div>
 
 
       <p style={{ marginTop: 20 }}>{message}</p>
