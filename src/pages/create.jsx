@@ -59,8 +59,7 @@ export default function Create() {
     position: "relative",
     cursor: isMaxReached ? "not-allowed" : "pointer",
     opacity: isMaxReached ? 0.5 : 1,
-    transition: "transform 0.2s ease", 
-    opacity: "0.2s ease"
+    transition: "transform 0.2s ease"
   }}
 >
   <img
