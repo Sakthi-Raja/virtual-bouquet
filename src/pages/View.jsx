@@ -7,18 +7,25 @@ export default function View() {
   const flowerIds = params.get("f")?.split(",") || [];
   const message = decodeURIComponent(params.get("m") || "");
 
-  const flowerSlots = [
-    { x: -80, y: -40, r: -10 },
-    { x: 0, y: -60, r: 5 },
-    { x: 80, y: -40, r: 12 },
-    { x: -120, y: 40, r: -5 },
-    { x: -40, y: 30, r: 8 },
-    { x: 40, y: 30, r: -8 },
-    { x: 120, y: 40, r: 6 },
-    { x: -60, y: 100, r: -12 },
-    { x: 20, y: 110, r: 5 },
-    { x: 90, y: 100, r: -3 }
-  ];
+const flowerSlots = [
+  // Center front (largest & highest z-index)
+  { x: 0,   y: 10,  r: 0,   s: 1.1, z: 5 }, 
+
+  // Middle layer, slightly varied
+  { x: -40, y: -20, r: -15, s: 0.95, z: 4 },
+  { x: 50,  y: -15, r: 10,  s: 0.95, z: 4 },
+  { x: -15, y: -45, r: -5,  s: 0.9, z: 4 },
+
+  // Back layer (tucked in, smaller scale)
+  { x: -80, y: -50, r: -25, s: 0.8, z: 3 },
+  { x: 80,  y: -40, r: 20,  s: 0.8, z: 3 },
+  { x: 0,   y: -80, r: 0,   s: 0.85, z: 3 }, // top center
+
+  // Bottom tucked (filler flowers)
+  { x: -30, y: 40, r: -10, s: 0.7, z: 2 },
+  { x: 30,  y: 45, r: 10,  s: 0.7, z: 2 },
+  { x: 0,   y: 70, r: 0,   s: 0.65, z: 1 } // very bottom center
+];
 
   // 🔥 STRING MATCH — THIS IS THE FIX
   const selectedFlowers = flowerIds
@@ -56,7 +63,7 @@ export default function View() {
               src={f.image}
               alt={f.name}
               style={{
-                width: 110,
+                width: 120,
                 position: "absolute",
                 left: "50%",
                 top: "50%",
@@ -64,8 +71,11 @@ export default function View() {
                   translate(-50%, -50%)
                   translate(${slot.x}px, ${slot.y}px)
                   rotate(${slot.r}deg)
+                  scale(${slot.s})
                 `,
-                transition: "all 0.3s ease"
+                zIndex: slot.z,
+                transition: "all 0.4s ease",
+                filter: "drop-shadow(0 6px 10px rgba(0,0,0,0.35))"
               }}
             />
           );
@@ -82,21 +92,16 @@ export default function View() {
           margin: "40px auto",
           borderRadius: 4,
           boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-          transform: "rotate(-1.5deg)",
+          transform: "rotate(-1deg)",
           fontFamily: "'Courier New', monospace"
         }}
       >
-        <p style={{ marginBottom: 20 }}>Dear you,</p>
+        {message?.trim() && (
+          <p style={{ whiteSpace: "pre-wrap", lineHeight: 1.7 }}>
+            {message}
+          </p>
+        )}
 
-        <p style={{ whiteSpace: "pre-wrap", lineHeight: 1.6 }}>
-          {message || " "}
-        </p>
-
-        <p style={{ marginTop: 30, textAlign: "right" }}>
-          Sincerely,
-          <br />
-          Someone
-        </p>
       </div>
     </div>
   );

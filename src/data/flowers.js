@@ -7,13 +7,13 @@ import sunflower from "../assets/flowers/sunflower.png";
 import tulip from "../assets/flowers/tulip.png";
 
 export const flowers = [
-  {id: "coronation", name:"Coronation", image: coronation},
-  {id: "dahlia", name: "Dahlia", image: dahlia},
-  {id: "hibiscus", name: "Hibiscus", image: hibiscus},
-  {id: "lily", name: "Lily", image: lily},
-  {id: "rose",name: "Rose", image: rose},
-  {id: "sunflower", name: "Sunflower", image: sunflower},
-  {id: "tulip", name: "Tulip", image: tulip}
+  {id: "coronation", name:"Coronation", image: coronation, type: "stem"},
+  {id: "dahlia", name: "Dahlia", image: dahlia, type: "stem"},
+  {id: "hibiscus", name: "Hibiscus", image: hibiscus, type: "bloom"},
+  {id: "lily", name: "Lily", image: lily, type: "bloom"},
+  {id: "rose",name: "Rose", image: rose, type: "bloom"},
+  {id: "sunflower", name: "Sunflower", image: sunflower, type: "bloom"},
+  {id: "tulip", name: "Tulip", image: tulip, type: "stem"}
 ];
 
 
