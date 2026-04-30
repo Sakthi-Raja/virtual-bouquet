@@ -6,7 +6,7 @@ export default function Create() {
   const [message, setMessage] = useState("");
   const [shareUrl, setShareUrl] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const min_flower=4;
+  const min_flower=6;
   const max_flower=10;
   const isMaxReached = selected.length >= max_flower;
 
@@ -38,7 +38,7 @@ export default function Create() {
   return (
     <div style={{ padding: 24, textAlign: "center" }}>
       <h1>🌸 Build a Bouquet</h1>
-      <h5>Select between 4 to 10 Flowers</h5>
+      <h5>Select between 6 to 10 Flowers</h5>
       {/* Flower selection */}
       <div
         style={{

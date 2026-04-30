@@ -20,19 +20,19 @@ export default function View() {
   // Spread more deliberately so no two slots heavily overlap
   const bloomSlots = [
     // FRONT CENTER
-    { x:   0,  y: -15,  r:   0,  s: 1.00, z: 5 },
+    { x:   0,  y: -55,  r:   0,  s: 1.00, z: 5 },
     // MIDDLE RING
-    { x: -52,  y: -48,  r: -18,  s: 0.90, z: 4 },
-    { x:  52,  y: -44,  r:  16,  s: 0.90, z: 4 },
-    { x:   0,  y: -82,  r:  -4,  s: 0.88, z: 4 },
+    { x: -52,  y: -88,  r: -18,  s: 0.90, z: 4 },
+    { x:  52,  y: -84,  r:  16,  s: 0.90, z: 4 },
+    { x:   0,  y: -122,  r:  -4,  s: 0.88, z: 4 },
     // BACK RING — wider spread so they don't hide each other
-    { x: -80,  y: -62,  r: -24,  s: 0.80, z: 3 },
-    { x:  80,  y: -58,  r:  22,  s: 0.80, z: 3 },
-    { x: -30,  y: -105, r: -14,  s: 0.78, z: 3 },
-    { x:  35,  y: -100, r:  16,  s: 0.78, z: 3 },
+    { x: -80,  y: -102,  r: -24,  s: 0.80, z: 3 },
+    { x:  80,  y: -98,  r:  22,  s: 0.80, z: 3 },
+    { x: -30,  y: -145, r: -14,  s: 0.78, z: 3 },
+    { x:  35,  y: -140, r:  16,  s: 0.78, z: 3 },
     // BOTTOM PEEK — partially visible inside bush
-    { x: -38,  y:  18,  r: -12,  s: 0.62, z: 3 },
-    { x:  40,  y:  22,  r:  13,  s: 0.62, z: 3 },
+    { x: -58,  y: 5,  r: -12,  s: 0.82, z: 3 },
+    { x:  50,  y: 5,  r:  13,  s: 0.82, z: 3 },
   ];
  
   const selectedFlowers = flowerIds
